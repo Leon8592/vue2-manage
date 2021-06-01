@@ -3,15 +3,17 @@
 	  	<transition name="form-fade" mode="in-out">
 	  		<section class="form_contianer" v-show="showLogin">
 		  		<div class="manage_tip">
-		  			<p>elm后台管理系统</p>
+		  			<p>后台管理系统Demo</p>
 		  		</div>
-		    	<el-form :model="loginForm" :rules="rules" ref="loginForm">
+		    	<el-form :model="loginForm" :rules="rules" :ref="loginForm">
 					<el-form-item prop="username">
-						<el-input v-model="loginForm.username" placeholder="用户名"><span>dsfsf</span></el-input>
+						<el-input v-model="loginForm.username" placeholder="用户名"><span>dsfa</span></el-input>
 					</el-form-item>
+
 					<el-form-item prop="password">
 						<el-input type="password" placeholder="密码" v-model="loginForm.password"></el-input>
 					</el-form-item>
+
 					<el-form-item>
 				    	<el-button type="primary" @click="submitForm('loginForm')" class="submit_btn">登录</el-button>
 				  	</el-form-item>
@@ -28,6 +30,7 @@
 	import {login, getAdminInfo} from '@/api/getData'
 	import {mapActions, mapState} from 'vuex'
 
+	// export导出 是为了别的地方import
 	export default {
 	    data(){
 			return {
@@ -58,6 +61,9 @@
 		methods: {
 			...mapActions(['getAdminData']),
 			async submitForm(formName) {
+
+				console.log("here")
+				
 				this.$refs[formName].validate(async (valid) => {
 					if (valid) {
 						const res = await login({user_name: this.loginForm.username, password: this.loginForm.password})
@@ -67,11 +73,15 @@
 		                        message: '登录成功'
 		                    });
 							this.$router.push('manage')
+
+							console.log("log in ok")
+							
 						}else{
 							this.$message({
 		                        type: 'error',
 		                        message: res.message
 		                    });
+							console.log("log in fail")
 						}
 					} else {
 						this.$notify.error({
@@ -79,6 +89,8 @@
 							message: '请输入正确的用户名密码',
 							offset: 100
 						});
+
+						console.log("input is not valid")
 						return false;
 					}
 				});

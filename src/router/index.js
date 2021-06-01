@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
+
 const login = r => require.ensure([], () => r(require('@/page/login')), 'login');
 const manage = r => require.ensure([], () => r(require('@/page/manage')), 'manage');
 const home = r => require.ensure([], () => r(require('@/page/home')), 'home');
@@ -20,11 +21,13 @@ const vueEdit = r => require.ensure([], () => r(require('@/page/vueEdit')), 'vue
 const adminSet = r => require.ensure([], () => r(require('@/page/adminSet')), 'adminSet');
 const sendMessage = r => require.ensure([], () => r(require('@/page/sendMessage')), 'sendMessage');
 const explain = r => require.ensure([], () => r(require('@/page/explain')), 'explain');
+const practice = r => require.ensure([], () => r(require('@/page/practice')), 'practice');
 
 const routes = [
 	{
 		path: '/',
 		component: login
+		// component: home
 	},
 	{
 		path: '/manage',
@@ -90,10 +93,16 @@ const routes = [
 			path: '/explain',
 			component: explain,
 			meta: ['说明', '说明'],
+		},{
+			path: '/practice',
+			component: practice,
+			meta: ['练习', '练习'],
 		}]
 	}
 ]
 
+
+// 不明白
 export default new Router({
 	routes,
 	strict: process.env.NODE_ENV !== 'production',

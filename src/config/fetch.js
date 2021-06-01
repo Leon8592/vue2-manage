@@ -1,6 +1,9 @@
+//引入baseUrl
 import { baseUrl } from './env'
 
 export default async(url = '', data = {}, type = 'GET', method = 'fetch') => {
+	
+	//怎么会有两个type
 	type = type.toUpperCase();
 	url = baseUrl + url;
 

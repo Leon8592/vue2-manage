@@ -1,3 +1,5 @@
+
+//这不像自定义啊，这是HTML标签啊。
 body, div, span, header, footer, nav, section, aside, article, ul, dl, dt, dd, li, a, p, h1, h2, h3, h4,h5, h6, i, b, textarea, button, input, select, figure, figcaption {
     padding: 0;
     margin: 0;
@@ -8,17 +10,20 @@ body, div, span, header, footer, nav, section, aside, article, ul, dl, dt, dd, l
     font-family: "Microsoft Yahei",sans-serif;
     -webkit-tap-highlight-color:transparent;
     -webkit-font-smoothing: antialiased;
+    //?
     &:focus {
         outline: none;
     }
 }
 
+//这其实是不显示滚动条
+//这种写法叫伪类选择器，不提倡使用，仅在支持webkit的浏览器中使用，如Chrome、Safari
 /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/  
 ::-webkit-scrollbar  
 {  
     width: 0px;  
     height: 0px;  
-    background-color: #F5F5F5;  
+    background-color: #F5F5F5;
 }  
   
 /*定义滚动条轨道 内阴影+圆角*/  

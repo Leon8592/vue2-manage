@@ -1,3 +1,7 @@
+<!--
+.Vue文件，叫做单文件组件，是Vue一个工具，就是把一个组件的HTML、JS、CSS都写到一个文件里，这个文件就定义一个组件。
+-->
+
 <template>
     <div class="visitorpie">
         <div id="visitorpie" class="" style="width: 90%;height:450px;"></div>
